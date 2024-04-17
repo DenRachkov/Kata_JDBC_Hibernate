@@ -10,7 +10,7 @@ import java.sql.SQLOutput;
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
-    UserDaoJDBCImpl userDaoJDBC = new UserDaoJDBCImpl();
+    private final UserDao userDaoJDBC = new UserDaoJDBCImpl();
 
     public void createUsersTable() {
         userDaoJDBC.createUsersTable();
@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
         userDaoJDBC.dropUsersTable();
     }
 
-    public void saveUser(String name, String lastName, byte age) {
+    public void saveUser(String name, String lastName, byte age) throws SQLException {
 
         userDaoJDBC.saveUser(name, lastName, age);
         System.out.println("User c именем - " + name + " добавлен в базу данных");
