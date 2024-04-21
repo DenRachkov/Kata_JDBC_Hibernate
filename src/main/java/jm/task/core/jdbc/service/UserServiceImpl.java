@@ -2,6 +2,7 @@ package jm.task.core.jdbc.service;
 
 import com.mysql.cj.xdevapi.PreparableStatement;
 import jm.task.core.jdbc.dao.UserDao;
+import jm.task.core.jdbc.dao.UserDaoHibernateImpl;
 import jm.task.core.jdbc.dao.UserDaoJDBCImpl;
 import jm.task.core.jdbc.model.User;
 
@@ -10,7 +11,7 @@ import java.sql.SQLOutput;
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
-    private final UserDao userDaoJDBC = new UserDaoJDBCImpl();
+    private final UserDao userDaoJDBC = new UserDaoHibernateImpl();
 
     public void createUsersTable() {
         userDaoJDBC.createUsersTable();
