@@ -8,30 +8,30 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class UserServiceImpl implements UserService {
-    private final UserDao userDaoJDBC = new UserDaoHibernateImpl();
+    private final UserDao userDao = new UserDaoHibernateImpl();
 
     public void createUsersTable() {
-        userDaoJDBC.createUsersTable();
+        userDao.createUsersTable();
 
     }
 
     public void dropUsersTable() {
-        userDaoJDBC.dropUsersTable();
+        userDao.dropUsersTable();
     }
 
     public void saveUser(String name, String lastName, byte age) throws SQLException {
 
-        userDaoJDBC.saveUser(name, lastName, age);
+        userDao.saveUser(name, lastName, age);
         System.out.println("User c именем - " + name + " добавлен в базу данных");
 
     }
 
     public void removeUserById(long id) {
-        userDaoJDBC.removeUserById(id);
+        userDao.removeUserById(id);
     }
 
     public List<User> getAllUsers() {
-        List<User> users = userDaoJDBC.getAllUsers();
+        List<User> users = userDao.getAllUsers();
         for (User user : users) {
             System.out.println(user);
         }
@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public void cleanUsersTable() {
-        userDaoJDBC.cleanUsersTable();
+        userDao.cleanUsersTable();
 
     }
 }
