@@ -20,20 +20,6 @@ public class Util {
 
     private static final String DIALECT = "org.hibernate.dialect.MySQLDialect";
 
-
-    public static Connection getConnection() {
-        Connection connection = null;
-        try {
-            connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-            if (!connection.isClosed()) {
-                System.out.println("Подключение установленно!");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return connection;
-    }
-
     public static SessionFactory getSessionFactory() {
         Properties properties = new Properties();
         properties.setProperty("hibernate.connection.url", URL);
